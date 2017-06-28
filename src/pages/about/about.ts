@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { Stepcounter } from '@ionic-native/stepcounter';
-import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot';
+import { Hotspot } from '@ionic-native/hotspot';
 
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 

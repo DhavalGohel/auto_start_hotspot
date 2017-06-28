@@ -18,27 +18,28 @@ export class HomePage {
       location: 'default'
     });
     this.database.then((db: SQLiteObject) => {
-      db.executeSql('select * from usernameList', {}).then((data) => {
-        this.items = [];
-        if (data.rows.length > 0) {
-          for (var i = 0; i < data.rows.length; i++) {
-            this.items.push({ name: data.rows.item(i).name });
-          }
-        }
-      }, (err) => {
-        alert('Unable to execute sql: ' + JSON.stringify(err));
-      });
+      db.executeSql('CREATE TABLE IF NOT EXISTS usernameList(id INTEGER PRIMARY KEY AUTOINCREMENT,name)', {})
+        .then(() =>{
+          db.executeSql('select * from usernameList', {}).then((data) => {
+            this.items = [];
+            if (data.rows.length > 0) {
+              for (var i = 0; i < data.rows.length; i++) {
+                this.items.push({ name: data.rows.item(i).name });
+              }
+            }
+          }, (err) => {
+            alert('Unable to execute sql: ' + JSON.stringify(err));
+          });
+          console.log('Executed SQL')
+      })
+        .catch(e => console.log(e));
+
     })
   }
 
   save() {
     if(this.username != ""){
       this.database.then((db: SQLiteObject) => {
-
-        db.executeSql('CREATE TABLE IF NOT EXISTS usernameList(id INTEGER PRIMARY KEY AUTOINCREMENT,name)', {})
-          .then(() => console.log('Executed SQL'))
-          .catch(e => console.log(e));
-
         //create table section
         db.executeSql('INSERT INTO usernameList(name) VALUES(\'' + this.username + '\')', [])
           .then(() =>{
