@@ -16,6 +16,8 @@ import { Stepcounter } from '@ionic-native/stepcounter';
 import { Hotspot } from '@ionic-native/hotspot';
 
 import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { AdMobFree } from '@ionic-native/admob-free';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -47,6 +49,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions';
     Stepcounter,
     Hotspot,
     AndroidPermissions,
+    AdMobFree,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

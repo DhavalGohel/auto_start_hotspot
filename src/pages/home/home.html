@@ -16,7 +16,7 @@
 
     <ion-item href="#" *ngFor="let x of items" >
     {{x.name}}
-    
+    <button item-right ion-button (click)="removeItem(x.id)">X</button>
     </ion-item>
 
   </ion-list>

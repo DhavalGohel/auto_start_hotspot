@@ -20,6 +20,7 @@
         "@angular/http": "4.1.3",
         "@angular/platform-browser": "4.1.3",
         "@angular/platform-browser-dynamic": "4.1.3",
+        "@ionic-native/admob-free": "^3.12.1",
         "@ionic-native/android-permissions": "^3.12.1",
         "@ionic-native/core": "3.12.1",
         "@ionic-native/diagnostic": "^3.12.1",
@@ -28,7 +29,10 @@
         "@ionic-native/status-bar": "3.12.1",
         "@ionic-native/stepcounter": "^3.12.1",
         "@ionic/storage": "2.0.1",
+        "cordova-admob-sdk": "^0.7.0",
         "cordova-android": "^6.2.3",
+        "cordova-custom-config": "file://node_modules/cordova-custom-config",
+        "cordova-plugin-admob-free": "^0.9.0",
         "cordova-plugin-android-permissions": "^1.0.0",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.5",
@@ -38,6 +42,7 @@
         "cordova-plugin-statusbar": "^2.2.2",
         "cordova-plugin-stepcounter": "^1.0.1",
         "cordova-plugin-whitelist": "^1.3.1",
+        "cordova-promise-polyfill": "0.0.2",
         "cordova-sqlite-storage": "^2.0.4",
         "cordova.plugins.diagnostic": "^3.6.5",
         "ionic-angular": "3.4.2",
@@ -66,7 +71,9 @@
             "cordova-plugin-stepcounter": {},
             "cordova-plugin-hotspot": {},
             "cordova.plugins.diagnostic": {},
-            "cordova-plugin-android-permissions": {}
+            "cordova-plugin-android-permissions": {},
+            "cordova-plugin-admob-free": {},
+            "cordova-custom-config": {}
         },
         "platforms": [
             "android"

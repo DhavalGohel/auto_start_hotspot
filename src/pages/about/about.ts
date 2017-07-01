@@ -33,19 +33,21 @@ export class AboutPage {
           this.createHotspot();
       });
       */
-      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.WRITE_SETTINGS).then(success =>{
-           console.log('Permission granted');
-           this.createHotspot();
-      },err => this.androidPermissions.requestPermissions(this.androidPermissions.PERMISSION.WRITE_SETTINGS).then(success => {
-           console.log('Permission granted');
-           this.createHotspot();
+      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.WRITE_SETTINGS).then(success => {
+        if(success.hasPermission){
+          console.log('Permission not ');
+          console.log(success);
+          this.createHotspot();
+        }else {
+          this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.WRITE_SETTINGS)
+        }
       },err => {
-        console.log('Permission granted Fail');
-      }));
+        this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.WRITE_SETTINGS)
+        console.log('Permission granted Fail: ' + err);
+      });
   }
 
   createHotspot() {
-
     this.hotspot.createHotspot("hacker","Open","").then(hotspotcreate=>{
       console.log("hotspot created");
         this.hotspot.startHotspot().then( () => {
